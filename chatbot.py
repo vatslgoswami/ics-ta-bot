@@ -52,9 +52,15 @@ while True:
                 step_id=step.id,  
                 include=["step_details.tool_calls[*].file_search.results[*].content"]
             )
-            print(run_step)
+            # if run_step.step_details and hasattr(run_step.step_details, "tool_calls"):
+            #     i = 0
+            #     for tool_call in run_step.step_details.tool_calls:
+            #         if tool_call.type == "file_search":
+            #             for result in tool_call.file_search.results:
+            #                 while i < 3:
+            #                     i+=1 
+            #                     print(f"Found relevant content:\n{result.content}")
             break
-
         time.sleep(1)  # Wait before polling again
 
 #implemement feature that allows users to upload files and add that to the thread too
